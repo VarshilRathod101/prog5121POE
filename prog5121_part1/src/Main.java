@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
         //making a scanner to read the input
         Scanner input = new Scanner(System.in);
-        Login auth = new Login();
+        Login userAuth = new Login();
 
         //start of the regisstation
         System.out.println("Account sign up (registration)");
@@ -19,7 +19,7 @@ public class Main {
         System.out.print("Enter Username: ");
         String username = input.nextLine();
         //checking if username meet the rules
-        if (!auth.checkUserName(username)) {
+        if (!userAuth.checkUserName(username)) {
             System.out.println("Username is not correctly formatted; please ensure that your username contains an underscore and is no more than five characters in length.");
             return;
         }
@@ -30,7 +30,7 @@ public class Main {
         System.out.print ("Enter password: ");
         String password = input.nextLine();
         //checking if password meet the rules
-        if (!auth.checkPasswordComplexity(password)) {
+        if (!userAuth.checkPasswordComplexity(password)) {
             System.out.println("Password is not correctly formatted; please ensure that the password contains at least eight characters, a capital letter, a number, and a special character.");
             return;
         }
@@ -41,14 +41,14 @@ public class Main {
         System.out.print("Enter Cell Phone Number (e.g. +27123456789): ");
         String cell = input.nextLine();
         //checking if cell phone number meet the rules
-        if (!auth.checkCellPhoneNumber(cell)) {
+        if (!userAuth.checkCellPhoneNumber(cell)) {
             System.out.println("Cell phone number incorrectly formatted or does not contain international code.");
             return;
         }
         System.out.println("Cell phone number  successfully added.");
 
         // Finishing the registration process
-        auth.registerUser(firstname, lastname, username, password);
+        userAuth.registerUser(firstname, lastname, username, password);
         System.out.println("\n  REGISTRATION COMPLETED SUCCESSFULLY ");
 
         // Login process
@@ -59,11 +59,13 @@ public class Main {
         System.out.print ("Password: ");
         String loginPass = input.nextLine();
 
-        boolean isSuccess = auth.loginUser(loginUser, loginPass);
-        System.out.println("\n" + auth.returnLoginStatus(isSuccess));
+        boolean isSuccess = userAuth.loginUser(loginUser, loginPass);
+        System.out.println("\n" + userAuth.returnLoginStatus(isSuccess));
 
     }
 }
+
+
     class Login {
         // capture the input after registration
         private String savedFirstName;
@@ -82,11 +84,10 @@ public class Main {
             boolean FindingNumber = password.matches(".*\\d.*");
             boolean CheckingSpecialChar = password.matches(".*[!@#$%^&*(),.?\":{}|<>].*");
             boolean CheckingLength = password.length() >= 8;
-
             return CheckingCapital && FindingNumber &&  CheckingSpecialChar  &&  CheckingLength ;
         }
 
-        //
+
         public boolean checkCellPhoneNumber(String cell) {
             return Pattern.matches("^\\+27\\d{9}$", cell);
         }

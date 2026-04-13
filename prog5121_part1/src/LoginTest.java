@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class LoginTest {
 
     // Creating a Login object for testing
-    Login login = new Login();
+    Login login = new  Login();
 
     //testing username
     @Test
@@ -15,7 +15,7 @@ class LoginTest {
 
     @Test
     void testUsernameFailure() {
-        assertFalse(login.checkUserName("kyle!!!!!!!"));
+        assertFalse (login.checkUserName("kyle!!!!!!!"));
         // incorrect username
     }
 
@@ -50,7 +50,7 @@ class LoginTest {
     @Test
     void testLoginSuccess() {
         // Register user first
-        login.registerUser("Kyle", "Smith", "kyl_1", "Ch&&sec@ke99!");
+        login.registerUser( "Kyle", "Smith", "kyl_1", "Ch&&sec@ke99!");
 
         // Correct login details
         assertTrue(login.loginUser("kyl_1", "Ch&&sec@ke99!"));
@@ -62,6 +62,6 @@ class LoginTest {
         login.registerUser("Kyle", "Smith", "kyl_1", "Ch&&sec@ke99!");
 
         // Wrong password
-        assertFalse(login.loginUser("kyl_1", "wrongPassword123!"));
+        assertFalse(login.loginUser("kyl_1" , "wrongPassword123!"));
     }
 }
