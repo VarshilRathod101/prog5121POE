@@ -57,3 +57,63 @@ The program gives feedback after every login attempt:
 If login is correct . It shows a success message (login successful)
 If login is incorrect . It shows a failure message (wrong username or password)
 This helps the user understand what went right or wrong.
+
+*Unit testing
+
+way to automatically check if your program works correctly. Instead of testing everything manually, you write small test cases that run by themselves and verify your code.
+
+Tests cover:
+ >Username validation
+>Password complexity validation
+> Cell phone number validation
+> Login authentication
+
+* messages display  ( Registration )
+
+
+USERNAME 
+
+True : Username successfully captured. 
+False : Username is not correctly formatted please ensure that your username contains an underscore and is no more than five characters in length.
+
+PASSWROD 
+
+True : Password successfully captured.
+False : Password is not correctly formatted please ensure that the password contains at least eight characters, a capital letter, a number, and a special character
+
+Phone number 
+
+True : Cell phone number  successfully added
+False : Cell phone number incorrectly formatted or does not contain international code 
+
+* messages display  ( Login  ) 
+
+ USERNAME AND PASSWORD 
+
+ True : Welcome (first and last name) it is great to see you again.
+ False : Username or password incorrect please try again 
+
+
+ # References
+
+Bro Code, 2025. Java Full Course for free ☕. [video online] Available at: 
+<https://youtu.be/xTtL8E4LzTQ> [Accessed 10 April 2026].
+
+Emeris School of Computer Science, 2025. PROG5121 Unit Testing Getting Started. [video online] Available at: 
+<https://www.youtube.com/watch?v=MOhiM2SXZl0> [Accessed 13 April 2026].
+
+Farrell, J., 2022. Java Programming. 15 August 2022.
+
+Stack Overflow, 2026 . Java Regex Phone Number. [online] Available at: 
+<https://stackoverflow.com/questions/33477950/java-regex-phone-number> [Accessed 13 April 2026]
+
+
+ W3Schools, 2025. Java Tutorial. [online] Available at: 
+<https://www.w3schools.com/java/> [Accessed 10 April 2026].
+
+
+
+
+
+ 
+
