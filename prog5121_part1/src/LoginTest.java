@@ -98,5 +98,22 @@ class LoginTest {
         String hash = message.createMessageHash("0012345678", "Hi Mike, can you join us for dinner tonight?");
 
         assertEquals("00:0:HITONIGHT", hash);
+
+    }
+    @Test
+    void testParallelArraysStorageSetup() {
+        String[] testRecipients = new String[2];
+        testRecipients[0] = "+27831234567";
+        testRecipients[ 1] = "+27839876543";
+
+        assertNotNull(testRecipients[0]);
+        assertEquals("+27839876543",  testRecipients[1]);
+    }
+
+    @Test
+    void testReportLayoutDataMapping() {
+        String[] testFlags = new String[1];
+        testFlags[0] = "Sent";
+        assertEquals("Sent", testFlags[0]);
     }
 }

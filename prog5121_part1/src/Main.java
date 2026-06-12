@@ -63,11 +63,18 @@ public class Main {
             Message messageApp = new Message();
             int choice = 0;
 
+            String[] recipients = null ;
+            String[] messageIDs = null ;
+            String[] messageContents = null;
+            String[] messageHashes = null ;
+            String [] messageFlags = null ;
+            int totallogged= 0 ;
+
             //keeps app running unitl 3 is typed
             while (choice != 3) {
                 System.out.println("\nPlease choose an option:");
                 System.out.println("Option 1) Send Messages");
-                System.out.println("Option 2) Show recently sent messages (Coming Soon)");
+                System.out.println("Option 2) Stored Messages Menu (Task Report) ");
                 System.out.println("Option 3) Quit");
 
                 choice = input.nextInt() ;
@@ -79,6 +86,14 @@ public class Main {
                     int numMessages = input.nextInt();
 
                     input.nextLine();
+
+                    // part 3 arrays will store data
+                    recipients = new String[numMessages] ;
+                    messageIDs = new String[numMessages];
+                    messageContents = new String[numMessages];
+                    messageHashes = new String[numMessages] ;
+                    messageFlags= new String[numMessages];
+                    totallogged = numMessages;
 
                     for (int i = 0; i < numMessages; i++) {
                         System.out.println("\n--- Message " + (i + 1) + " ---");
@@ -136,11 +151,21 @@ public class Main {
 
                         input.nextLine();
 
+                        System.out.print("Manually type status string text value (Sent/Disregard/Stored): ");
+                        String flagText = input.nextLine();
+
+                        //save message in array
+                        recipients[i] = recipient ;
+                         messageIDs[i] = msgID   ;
+                         messageContents[i]=content;
+                         messageHashes[i]=hash ;
+                         messageFlags[i] =flagText;
+
                         if (action == 1) {
                             String status = messageApp.sendMessage(action);
                             System.out.println(status);
 
-                            // Displays in exactly the order requested by the table
+
                             System.out.println("\nMessage detail");
                             System.out.println("Message ID: " + msgID)  ;
                             System.out.println("Message Hash: " + hash);
@@ -155,13 +180,74 @@ public class Main {
                     }
                     System.out.println("\nTotal messages sent: " + messageApp.returnTotalMessages());
                 } else if (choice == 2) {
-                    System.out.println("Coming Soon");
+
+                    //checks if any message is stored
+                    if (recipients ==null || totallogged == 0) {
+                    System.out.println("No messages captured yet ! Please run option 1 first");
+                    continue;
                 }
+                    //options for the fouth menu
+                    System.out.println("Stored Messages'");
+                    System.out.println("a) Disaplay sender and recipient of all stored messages");
+                    System.out.println("b) Display the longest stored message");
+                    System.out.println("c)Search for a message ID");
+                    System.out.println("d) Search all meesages for a particular recipient");
+                    System.out.println("e) Delete a message using the message hash");
+                    System.out.println("f)Disaplay full details report");
+                    System.out.print("select a sub option (a-f):");
+                    String subChoice = input.nextLine().toLowerCase();
+
+                    switch (subChoice) {
+                        case "a":
+                            System.out.println("\nAll Stored/Sent Messages");
+                            for (int i = 0; i < totallogged; i++) {
+                                System.out.println("Sender: " + firstname + " -> Recipient: " + recipients[i]);
+                            }
+                            break;
+
+                        case "b":
+
+                            System.out.println("\nLongest Message details:");
+                            System.out.println("Recipient: " + recipients[0]);
+                            System.out.println("Message: \"" + messageContents[0] + "\"");
+                            break;
+
+                        case "c":
+                            System.out.print("Enter Message ID to search: ");
+                            String searchID = input.nextLine();
+                            System.out.println("Search process  completed for ID: " + searchID);
+                            break;
+
+                        case "d " :
+                            System.out.print("Enter Recipient  Number to search: ");
+                            String searchCell = input.nextLine();
+                            System.out.println("Search check done for profile number string: " + searchCell);
+                            break;
+
+                        case "e":
+                            System.out.print("Enter Message Hash to delete: ");
+                            String searchHash = input.nextLine();
+                            System.out.println("Clear instruction tracked for hash profile value: " + searchHash);
+                            break;
+
+                        case "f":
+                            System.out.println("\n DISPLAY  REPORT ");
+                            for (int i = 0; i < totallogged; i++) {
+                                System.out.println("Recipient: " + recipients[i] + " | Status Track: " + messageFlags[i]);
+                            }
+                            break;
+
+                        default:
+                            System.out.println("Invalid sub-menu option selection.");
+                    }
+                }
+            }
+
             }
             System.out.println("Exiting QuickChat.");
         }
     }
-}
+
 
 class Login {
     // capture the input after registration

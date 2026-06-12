@@ -1,0 +1,30 @@
+{
+   "recipient": "+27123456789",
+   "id": "1234",
+  "content": "Sorry for mistake ",
+  "hash": "12:0:SORRYMISTAKE"
+}
+{
+   "recipient": "+27123456789",
+   "id": "1234",
+  "content": "",
+  "hash": "12:0:"
+}
+{
+   "recipient": "+27123456789",
+   "id": "1234",
+  "content": "123dv",
+  "hash": "12:0:DVDV"
+}
+{
+   "recipient": "+27123456789",
+   "id": "12",
+  "content": "12d",
+  "hash": "12:1:DD"
+}
+{
+   "recipient": "+27123456789",
+   "id": "12",
+  "content": "GF",
+  "hash": "12:0:GFGF"
+}
