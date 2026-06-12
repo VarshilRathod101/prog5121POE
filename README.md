@@ -255,4 +255,40 @@ W3Schools, 2026. Java For Loop. [online] Available at: https://www.w3schools.com
 Web Dev Simplified, 2018. Learn JSON in 10 Minutes. [video online] Available at:
 https://youtu.be/iiADhChRriM?si=s5jKjrDb8aWeDtIe
 [Accessed 6 May 2026].
+
+  #Part 3
+
+ > Part 3 expands QuickChat into a more advanced message management application.
+ The system now supports multiple messages using parallel arrays. 
+ This allows the program to store and manage several message records during one session.
+
+>The program uses five matching lists to store message details.
+These hold phone numbers, message IDs, the actual texts, hash codes, and status markers.
+Each matching spot across all lists makes up one full message, keeping all related info properly connected.
+
+>When the program begins it asks the user how many messages they want to type in.
+This number then sets the size of the arrays. 
+A loop runs to gather message details based on what the user entered. 
+
+>For each message the program first checks the phone number using a method that makes sure it follows the right South African format. 
+The message ID is then checked to make sure it is not longer than 10 characters.
+After that the message text is checked to make sure it does not go over 250 characters. 
+
+>Once all inputs are valid the system generates a unique message hash. 
+This hash is created using parts of the message IDthe message content, and a counter that tracks the number of messages sent. 
+The purpose of the hash is to uniquely identify each message in the system.
+
+?After the message is processed the user picks an action.
+The choices are send, disregard or store. Based on the chosen action, the program updates the message status and handles it accordingly.
+If the message is sent it is added to the total number of messages sent during the session.
+
+The program also includes a stored message management menu. 
+This menu allows the user to view and manage all stored messages using options a to f.
+
+Option a displays all sender and recipient details for stored messages.
+Option b finds and displays the longest message in the system.
+Option c allows the user to search for a message using its message ID.
+Option d allows searching for all messages linked to a specific recipient number.
+Option e allows a message to be deleted using its unique message hash.
+Option f displays a full report of all stored messages and their status flags.
   
